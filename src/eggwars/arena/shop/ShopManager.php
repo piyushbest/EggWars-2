@@ -55,7 +55,7 @@ class ShopManager {
      */
     public function openShop(Player $player, Team $team) {
         $event = new PlayerOpenShopEvent($player, $this->getArena(), PlayerOpenShopEvent::SHOP_TYPE_CHEST, $this->shopData);
-        $this->getArena()->getPlugin()->getServer()->getPluginManager()->callEvent($event);
+        $this->getArena()->getPlugin()->getPluginManager()->callEvent($event);
 
         if($event->isCancelled() || $event->getShopType() !== PlayerOpenShopEvent::SHOP_TYPE_CHEST) {
             return;
